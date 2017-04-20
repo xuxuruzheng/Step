@@ -55,17 +55,17 @@
     dateFromatter.dateFormat = @"yyyy-MM-dd";
     NSString *dateStr = [dateFromatter stringFromDate:currentDate];
     
-    stepM.record_time = @"2017-04-23";
+    stepM.record_time = dateStr;
     stepM.content = @"今天天气不错";
     stepM.savenum = 1;
-    stepM.step = 4321;
+    stepM.step = self.step;
     stepM.distance = self.distance;
-//    if ([XXStepDataManager selectStep]) {
-//        [XXStepDataManager updateStep:stepM];
-//    }else
-//    {
+    if ([XXStepDataManager selectStep]) {
+        [XXStepDataManager updateStep:stepM];
+    }else
+    {
         [XXStepDataManager addStep:stepM];
-//    }
+    }
     
 }
 - (IBAction)delete:(id)sender {
